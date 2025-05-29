@@ -1,13 +1,12 @@
-# Lightweight React Template for KAVIA
+# Directors Mania – Movie Streaming Platform
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+This project is a minimal React template rebranded as "Directors Mania", with a clean, modern UI tailored for movie lovers who celebrate directors and their movies.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- **Director-Focused Branding**: Experience a look centered around noted directors and their movies.
+- **Clean Modern UI**: Sharp, visually prominent styles, logo, and subtle cues that highlight directors.
+- **Lightweight & Fast**: Minimal UI dependencies, quick loads, and responsive across devices.
 
 ## Getting Started
 
@@ -35,48 +34,31 @@ The main brand colors are defined as CSS variables in `src/App.css`:
 
 ```css
 :root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
+  --dm-primary: #161826;
+  --dm-accent: #7098d3;
+  --dm-highlight: #fde047;
+  --text-color: #fbf9f9;
+  --text-secondary: rgba(255,255,255,.82);
+  --border-color: #2a365255;
 }
 ```
+*(Palette is inspired by cinematic and directorial cues: deep blues, gentle spotlight yellow, soft contrast)*
 
 ### Components
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+UI is written in pure HTML/CSS—in `src/App.css`—without external frameworks.
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+Key components:
 
-## Learn More
+- **Header, Navbar** (`.navbar`, `.logo`): Features the "Directors Mania" logo
+- **Container** (`.container`): Centers and pads main body
+- **Sidebar**: Filtering UI, colored with DM brand
+- **Typography**: Headers feature bold styles and a highlight for director focus
+
+## About
+
+"Directors Mania" is intended for discovering movies by director focus—upgrade, adapt, and expand as needed!
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*(Other sections remain as in the original template.)*
