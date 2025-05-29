@@ -102,3 +102,6 @@ src/App.js
   Line 97:89:  Parsing error: Unterminated string constant. (97:89)
 
 webpack compiled with 2 errors
+Compiling...
+Compiled successfully!
+webpack compiled successfully
