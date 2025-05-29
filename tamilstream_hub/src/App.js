@@ -105,8 +105,13 @@ function Navbar({ user, onLoginClick, onLogoutClick }) {
       <div className="container" style={{ maxWidth: 1200 }}>
         <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
           <div className="logo" style={{ letterSpacing: 1 }}>
-            <span className="logo-symbol" style={{ color: "#f10410", fontWeight: 900 }}>●</span>
-            <span style={{ color: "#fbf9f9" }}>TamilStream Hub</span>
+            {/* Director's chair icon, DM brand accent */}
+            <span className="logo-symbol" style={{ color: "#7098d3", fontWeight: 900, fontSize: "1.45rem" }}>🎬</span>
+            <span style={{
+              color: "#fde047",
+              fontWeight: 600,
+              textShadow: "0px 1px 5px #1b253d"
+            }}>Directors Mania</span>
           </div>
           <div>
             {user ? (
@@ -587,11 +592,27 @@ function App() {
           }}
         >
           <div className="container" style={{ maxWidth: 1200, marginLeft: 30, paddingLeft: 32 }}>
-            <h1 className="title" style={{ color: "#f10410", fontSize: "2.2rem", fontWeight: 800, marginTop: 2, marginBottom: 8, letterSpacing: 0.2 }}>
-              Browse Movies
+            <h1 className="title" style={{
+              color: "#7098d3",
+              fontSize: "2.28rem",
+              fontWeight: 800,
+              marginTop: 2,
+              marginBottom: 7,
+              letterSpacing: 0.5,
+              textShadow: "0 1.5px 6px #101827aa"
+            }}>
+              Celebrate Great Directors & Their Movies
             </h1>
-            <div className="description" style={{ color: "#dadada", fontWeight: 500, marginBottom: 19 }}>
-              Stream Tamil & other language movies. Filter by genre, search, and unlock premium content by subscribing!
+            <div className="description" style={{
+              color: "#e2debe",
+              fontWeight: 510,
+              marginBottom: 20,
+              background: "rgba(46,89,167,0.05)",
+              borderRadius: 6,
+              padding: "6px 13px 6px 7px",
+              display: "inline-block"
+            }}>
+              Browse, search, and filter a curated collection spotlighting the work of top directors. Discover their style across genres, languages, and subscribe to unlock premium features!
             </div>
             <SearchBar query={query} setQuery={setQuery} />
             <MovieGrid
