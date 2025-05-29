@@ -95,7 +95,7 @@ function Navbar({ user, onLoginClick, onLogoutClick }) {
       <div className="container" style={{ maxWidth: 1200 }}>
         <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
           <div className="logo" style={{ letterSpacing: 1 }}>
-            <span className="logo-symbol" style={{ color: "#f10410", fontWeight: 900 }}>{'●}</span>
+            <span className="logo-symbol" style={{ color: "#f10410", fontWeight: 900 }}>●</span>
             <span style={{ color: "#fbf9f9" }}>TamilStream Hub</span>
           </div>
           <div>
