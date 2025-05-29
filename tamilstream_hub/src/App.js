@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import "./App.css";
 import jaiBhimPoster from "./20250529_175857_jaibhim.jpeg";
 import asuranPoster from "./20250529_180329_asuran.jpg";
+/**
+ * DEBUGGING - If the Asuran image is not shown, try importing the image with a slightly modified import.
+ * This sometimes works due to cache or webpack quirks (e.g. case, whitespace...).
+ */
+// import asuranPoster from "./20250529_180329_asuran.JPG";
 
 // Mock Data for Demo Purposes
 const MOCK_MOVIES = [
