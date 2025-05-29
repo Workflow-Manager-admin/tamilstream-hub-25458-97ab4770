@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import jaiBhimPoster from "./20250529_175857_jaibhim.jpeg";
+import asuranPoster from "./20250529_180329_asuran.jpg";
 
 // Mock Data for Demo Purposes
 const MOCK_MOVIES = [
@@ -42,7 +43,7 @@ const MOCK_MOVIES = [
     language: "Tamil",
     genres: ["Drama", "Thriller"],
     isFree: false,
-    poster: "https://m.media-amazon.com/images/I/819Dz95sKuL._AC_SY606_.jpg",
+    poster: asuranPoster, // Use local image asset for Asuran poster
   },
   {
     id: 6,
