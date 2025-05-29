@@ -2,15 +2,6 @@ import React, { useState } from "react";
 import "./App.css";
 import jaiBhimPoster from "./20250529_175857_jaibhim.jpeg";
 import asuranPoster from "./20250529_180329_asuran.jpg";
-/**
- * DEBUGGING - If the Asuran image is not shown, try importing the image with a slightly modified import.
- * This sometimes works due to cache or webpack quirks (e.g. case, whitespace...).
- * 
- * NOTE: If your web server or OS is case-sensitive, ensure the filename matches exactly.
- * For even greater robustness, use require as fallback, which sometimes resolves underlying import problems in static bundlers:
- *    let asuranPoster;
- *    try { asuranPoster = require('./20250529_180329_asuran.jpg'); } catch { asuranPoster = ''; }
- */
 
 // Mock Data for Demo Purposes
 const MOCK_MOVIES = [
@@ -95,11 +86,9 @@ function movieMatchesFilters(movie, { genre, language, query }) {
   return genreMatch && languageMatch && queryMatch;
 }
 
-// === Components ===
-
 // PUBLIC_INTERFACE
-function Navbar({ user, onLoginClick, onLogoutClick }) {
-  /** Renders the main nav bar with logo and login/logout button. */
+function Navbar() {
+  /** Renders a minimalist nav bar with only branding, no login/logout. */
   return (
     <nav className="navbar" style={{ background: "#1a1a1a" }}>
       <div className="container" style={{ maxWidth: 1200 }}>
@@ -112,20 +101,6 @@ function Navbar({ user, onLoginClick, onLogoutClick }) {
               fontWeight: 600,
               textShadow: "0px 1px 5px #1b253d"
             }}>Directors Mania</span>
-          </div>
-          <div>
-            {user ? (
-              <>
-                <span style={{ color: "#fbf9f9", marginRight: 16 }}>{user.email}</span>
-                <button className="btn" style={{ background: "#f10410" }} onClick={onLogoutClick}>
-                  Logout
-                </button>
-              </>
-            ) : (
-              <button className="btn" style={{ background: "#f10410" }} onClick={onLoginClick}>
-                Login / Signup
-              </button>
-            )}
           </div>
         </div>
       </div>
@@ -239,7 +214,7 @@ function SearchBar({ query, setQuery }) {
 }
 
 // PUBLIC_INTERFACE
-function MovieGrid({ movies, onSelectMovie, user }) {
+function MovieGrid({ movies, onSelectMovie }) {
   /** Grid of movie cards */
   return (
     <div style={{
@@ -265,7 +240,6 @@ function MovieGrid({ movies, onSelectMovie, user }) {
           key={movie.id}
           movie={movie}
           onSelect={() => onSelectMovie(movie)}
-          user={user}
         />
       ))}
     </div>
@@ -273,7 +247,7 @@ function MovieGrid({ movies, onSelectMovie, user }) {
 }
 
 // PUBLIC_INTERFACE
-function MovieCard({ movie, onSelect, user }) {
+function MovieCard({ movie, onSelect }) {
   /** Single movie item display as card */
   return (
     <div
@@ -341,8 +315,8 @@ function MovieCard({ movie, onSelect, user }) {
 }
 
 // PUBLIC_INTERFACE
-function MovieDetailModal({ movie, user, onClose, onSubscribe }) {
-  /** Modal window to show details of a selected movie */
+function MovieDetailPanel({ movie, onClose }) {
+  /** NON-interactive static panel for selected movie info */
   if (!movie) return null;
 
   return (
@@ -382,121 +356,39 @@ function MovieDetailModal({ movie, user, onClose, onSubscribe }) {
         )}
         <h2 style={{ color: "#fbf9f9", margin: 0 }}>{movie.title}</h2>
         <div style={{ color: "#dfdbdb", fontSize: "1.05rem", marginBottom: 7 }}>{movie.language} | {movie.genres.join(", ")}</div>
-        {
-          movie.isFree ?
-            <span style={{
-              color: "#00df54",
-              fontWeight: 700,
-              background: "#0a7218",
-              borderRadius: 7,
-              padding: "3px 10px",
-              fontSize: "1rem"
-            }}>Free to Watch</span>
-            :
-            <span style={{
-              color: "#ffffff",
-              fontWeight: 700,
-              background: "#f10410",
-              borderRadius: 8,
-              padding: "3px 10px",
-              fontSize: "1rem",
-              marginRight: 5
-            }}>
-              Requires Subscription &nbsp;
-              <span role="img" aria-label="lock">🔒</span>
-            </span>
-        }
-        <div style={{ marginTop: 25 }}>
-          {movie.isFree || (user && user.subscribed)
-            ? (<button className="btn btn-large" style={{ background: "#f10410", color: "#fff" }}>Watch Now</button>)
-            : (!user
-              ? (<div><em style={{ color: "#fff" }}>Login to subscribe & unlock</em></div>)
-              : (<button className="btn btn-large"
-                style={{ background: "#f10410", color: "#fff" }}
-                onClick={onSubscribe}>Subscribe Now</button>))
-          }
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// PUBLIC_INTERFACE
-function AuthModal({ mode, onClose, onAuth, error }) {
-  /** Modal for login/sign up – simple demo UX. */
-  const [email, setEmail] = useState("");
-  const [pw, setPw] = useState("");
-
-  function submit(e) {
-    e.preventDefault();
-    if (!email || !pw) return;
-    onAuth(email, pw, mode);
-  }
-  return (
-    <div style={{
-      position: "fixed",
-      top: 0, left: 0, right: 0, bottom: 0,
-      background: "rgba(30,25,32,0.7)",
-      zIndex: 6000,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center"
-    }}>
-      <div style={{
-        background: "#26232b",
-        borderRadius: 12,
-        width: 340,
-        boxShadow: "0 2px 30px rgba(0,0,0,0.59)",
-        padding: "32px 26px 22px 26px",
-        position: "relative"
-      }}>
-        <button
-          className="btn"
-          style={{ position: "absolute", top: 13, right: 18, background: "#292929", color: "#fae0e1", fontSize: 15, padding: "6px 11px" }}
-          onClick={onClose}>X</button>
-        <h2 style={{ color: "#fbf9f9", textAlign: "center", margin: 0, marginBottom: 14 }}>
-          {mode === "login" ? "Login" : "Sign Up"}
-        </h2>
-        <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-          <input
-            type="email"
-            placeholder="Email"
-            style={{ padding: 8, fontSize: 16, borderRadius: 4, border: "1px solid #dae", background: "#f5f2fa" }}
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            style={{ padding: 8, fontSize: 16, borderRadius: 4, border: "1px solid #dae", background: "#f5f2fa" }}
-            value={pw}
-            onChange={e => setPw(e.target.value)}
-            minLength={3}
-            required
-          />
-          <button type="submit" className="btn btn-large" style={{ background: "#f10410", color: "#fff" }}>
-            {mode === "login" ? "Login" : "Sign Up"}
-          </button>
-        </form>
-        {mode === "login" ? (
-          <div style={{ textAlign: "center", marginTop: 18, fontSize: 15, color: "#cdc9cf" }}>
-            New user?{" "}
-            <button style={{ background: "none", border: 0, color: "#f10410", cursor: "pointer", textDecoration: "underline", fontSize: 15 }}
-              onClick={() => onAuth(null, null, "signup")}>
-              Create an account
-            </button>
-          </div>
+        {movie.isFree ? (
+          <span style={{
+            color: "#00df54",
+            fontWeight: 700,
+            background: "#0a7218",
+            borderRadius: 7,
+            padding: "3px 10px",
+            fontSize: "1rem"
+          }}>Free to Watch</span>
         ) : (
-          <div style={{ textAlign: "center", marginTop: 18, fontSize: 15, color: "#cdc9cf" }}>
-            Already registered?{" "}
-            <button style={{ background: "none", border: 0, color: "#f10410", cursor: "pointer", textDecoration: "underline", fontSize: 15 }}
-              onClick={() => onAuth(null, null, "login")}>
-              Login here
-            </button>
-          </div>
+          <span style={{
+            color: "#ffffff",
+            fontWeight: 700,
+            background: "#f10410",
+            borderRadius: 8,
+            padding: "3px 10px",
+            fontSize: "1rem",
+            marginRight: 5
+          }}>
+            Requires Subscription &nbsp;
+            <span role="img" aria-label="lock">🔒</span>
+          </span>
         )}
-        {error && <div style={{ color: "#ef2525", marginTop: 13, textAlign: "center", fontWeight: 500 }}>{error}</div>}
+        <div style={{ marginTop: 25 }}>
+          {movie.isFree ?
+            (<span style={{ color: "#fde047", fontWeight: 650 }}>Enjoy streaming this free movie!</span>)
+            : (
+              <span style={{ color: "#fde047", fontWeight: 650 }}>
+                Subscription movies are demo-locked.<br />
+                (No subscription/signup required on this demo.)
+              </span>
+            )}
+        </div>
       </div>
     </div>
   );
@@ -506,17 +398,11 @@ function AuthModal({ mode, onClose, onAuth, error }) {
 
 // PUBLIC_INTERFACE
 function App() {
-  // Demo State Management
+  // Only browse/search/filter/select, NO prompts, NO user/auth state
   const [selectedGenre, setSelectedGenre] = useState("All");
   const [selectedLang, setSelectedLang] = useState(null); // null means all
   const [query, setQuery] = useState("");
   const [selectedMovie, setSelectedMovie] = useState(null);
-
-  // Demo user & auth
-  const [user, setUser] = useState(null); // e.g., { email, subscribed }
-  const [showAuth, setShowAuth] = useState(false);
-  const [authMode, setAuthMode] = useState("login");
-  const [authError, setAuthError] = useState("");
 
   // Filtered movie list
   const filteredMovies = MOCK_MOVIES.filter((movie) =>
@@ -527,50 +413,10 @@ function App() {
     })
   );
 
-  // Demo: handle login/signup in-memory
-  function handleAuth(email, pw, mode) {
-    setAuthError("");
-    if (mode === "login") {
-      // Accept demo user
-      if (email === "test@demo.com" && pw === "1234") {
-        setUser({ email, subscribed: false });
-        setShowAuth(false);
-        return;
-      }
-      setAuthError("Invalid credentials for demo (try test@demo.com/1234)");
-    } else if (mode === "signup") {
-      if (!email) {
-        setAuthMode("signup"); // Just switch form
-        return;
-      }
-      setUser({ email, subscribed: false });
-      setShowAuth(false);
-    } else {
-      // Switch mode only
-      setAuthMode(mode);
-      setAuthError("");
-    }
-  }
-
-  function handleLogout() {
-    setUser(null);
-  }
-
-  function handleSubscribe() {
-    setUser((u) => u ? { ...u, subscribed: true } : u);
-    setSelectedMovie(null);
-    alert("You are now subscribed! You can watch all movies.");
-  }
-
-  // Page Layout: Navbar (fixed), Sidebar, Main Body
+  // Layout: Navbar (fixed), Sidebar, Main Body
   return (
     <div className="app" style={{ background: "#1a1a1a", color: "#fbf9f9" }}>
-      <Navbar
-        user={user}
-        onLoginClick={() => { setAuthMode("login"); setShowAuth(true); }}
-        onLogoutClick={handleLogout}
-      />
-
+      <Navbar />
       <div style={{ display: "flex", minHeight: "100vh" }}>
         <Sidebar
           genres={GENRES}
@@ -580,7 +426,6 @@ function App() {
           selectedLang={selectedLang}
           setSelectedLang={setSelectedLang}
         />
-
         <main className="main-section"
           style={{
             flex: 1,
@@ -612,33 +457,21 @@ function App() {
               padding: "6px 13px 6px 7px",
               display: "inline-block"
             }}>
-              Browse, search, and filter a curated collection spotlighting the work of top directors. Discover their style across genres, languages, and subscribe to unlock premium features!
+              Browse, search, and filter a curated collection spotlighting the work of top directors. Discover their style across genres and languages.
             </div>
             <SearchBar query={query} setQuery={setQuery} />
             <MovieGrid
               movies={filteredMovies}
               onSelectMovie={setSelectedMovie}
-              user={user}
             />
           </div>
         </main>
       </div>
-
+      {/* Show static info panel with close for movie details (NO subscription/NO login/NO prompts) */}
       {selectedMovie && (
-        <MovieDetailModal
+        <MovieDetailPanel
           movie={selectedMovie}
-          user={user}
           onClose={() => setSelectedMovie(null)}
-          onSubscribe={handleSubscribe}
-        />
-      )}
-
-      {showAuth && (
-        <AuthModal
-          mode={authMode}
-          onClose={() => setShowAuth(false)}
-          onAuth={handleAuth}
-          error={authError}
         />
       )}
     </div>
