@@ -5,8 +5,12 @@ import asuranPoster from "./20250529_180329_asuran.jpg";
 /**
  * DEBUGGING - If the Asuran image is not shown, try importing the image with a slightly modified import.
  * This sometimes works due to cache or webpack quirks (e.g. case, whitespace...).
+ * 
+ * NOTE: If your web server or OS is case-sensitive, ensure the filename matches exactly.
+ * For even greater robustness, use require as fallback, which sometimes resolves underlying import problems in static bundlers:
+ *    let asuranPoster;
+ *    try { asuranPoster = require('./20250529_180329_asuran.jpg'); } catch { asuranPoster = ''; }
  */
-// import asuranPoster from "./20250529_180329_asuran.JPG";
 
 // Mock Data for Demo Purposes
 const MOCK_MOVIES = [
