@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import jaiBhimPoster from "./20250529_175857_jaibhim.jpeg";
 
 // Mock Data for Demo Purposes
 const MOCK_MOVIES = [
@@ -17,7 +18,7 @@ const MOCK_MOVIES = [
     language: "Tamil",
     genres: ["Drama"],
     isFree: false,
-    poster: "https://m.media-amazon.com/images/I/81YblNgzktL._AC_SY606_.jpg",
+    poster: jaiBhimPoster, // Use local image asset
   },
   {
     id: 3,
@@ -94,7 +95,7 @@ function Navbar({ user, onLoginClick, onLogoutClick }) {
       <div className="container" style={{ maxWidth: 1200 }}>
         <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
           <div className="logo" style={{ letterSpacing: 1 }}>
-            <span className="logo-symbol" style={{ color: "#f10410", fontWeight: 900 }}>{'\u25CF'}</span>
+            <span className="logo-symbol" style={{ color: "#f10410", fontWeight: 900 }}>{'●}</span>
             <span style={{ color: "#fbf9f9" }}>TamilStream Hub</span>
           </div>
           <div>
