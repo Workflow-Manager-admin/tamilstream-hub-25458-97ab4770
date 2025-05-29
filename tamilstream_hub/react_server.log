@@ -18,3 +18,87 @@ Note that the development build is not optimized.
 To create a production build, use npm run build.
 
 webpack compiled successfully
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.js
+Syntax error: Unterminated string constant. (97:89) (97:89)
+ERROR in [eslint] 
+src/App.js
+  Line 97:89:  Parsing error: Unterminated string constant. (97:89)
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.js
+Syntax error: Unterminated string constant. (97:89) (97:89)
+ERROR in ./src/App.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/src/App.js: Unterminated string constant. (97:89)
+
+   95 |         <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+   96 |           <div className="logo" style={{ letterSpacing: 1 }}>
+>  97 |             <span className="logo-symbol" style={{ color: "#f10410", fontWeight: 900 }}>{"●}</span>
+      |                                                                                          ^
+   98 |             <span style={{ color: "#fbf9f9" }}>TamilStream Hub</span>
+   99 |           </div>
+  100 |           <div>
+    at constructor (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:3327:19)
+    at Object.unterminated (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:2395:20)
+    at readStringContents (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:2137:16)
+    at FlowParserMixin.readString (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:3226:9)
+    at FlowParserMixin.getTokenFromCode (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:2986:14)
+    at FlowParserMixin.getTokenFromCode (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:6970:11)
+    at FlowParserMixin.getTokenFromCode (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:5419:13)
+    at FlowParserMixin.nextToken (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:2510:10)
+    at FlowParserMixin.next (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:2423:10)
+    at FlowParserMixin.jsxParseElementAt (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:6880:20)
+    at FlowParserMixin.jsxParseElementAt (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:6871:32)
+    at FlowParserMixin.jsxParseElementAt (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:6871:32)
+    at FlowParserMixin.jsxParseElementAt (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:6871:32)
+    at FlowParserMixin.jsxParseElementAt (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:6871:32)
+    at FlowParserMixin.jsxParseElement (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:6922:17)
+    at FlowParserMixin.parseExprAtom (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:6932:19)
+    at FlowParserMixin.parseExprSubscripts (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10758:23)
+    at FlowParserMixin.parseUpdate (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10743:21)
+    at FlowParserMixin.parseMaybeUnary (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10723:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10576:61)
+    at FlowParserMixin.parseExprOps (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10581:23)
+    at FlowParserMixin.parseMaybeConditional (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10558:23)
+    at FlowParserMixin.parseMaybeAssign (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10521:21)
+    at /home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:5722:39
+    at FlowParserMixin.tryParse (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:3665:20)
+    at FlowParserMixin.parseMaybeAssign (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:5722:18)
+    at /home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10491:39
+    at FlowParserMixin.allowInAnd (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:12100:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10491:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:11359:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:5815:18)
+    at FlowParserMixin.parseExprAtom (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:11006:23)
+    at FlowParserMixin.parseExprAtom (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:6937:20)
+    at FlowParserMixin.parseExprSubscripts (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10758:23)
+    at FlowParserMixin.parseUpdate (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10743:21)
+    at FlowParserMixin.parseMaybeUnary (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10723:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10576:61)
+    at FlowParserMixin.parseExprOps (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10581:23)
+    at FlowParserMixin.parseMaybeConditional (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10558:23)
+    at FlowParserMixin.parseMaybeAssign (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10521:21)
+    at FlowParserMixin.parseMaybeAssign (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:5773:18)
+    at FlowParserMixin.parseExpressionBase (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10475:23)
+    at /home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10471:39
+    at FlowParserMixin.allowInAnd (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:12095:16)
+    at FlowParserMixin.parseExpression (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:10471:17)
+    at FlowParserMixin.parseReturnStatement (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:12786:28)
+    at FlowParserMixin.parseStatementContent (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:12437:21)
+    at FlowParserMixin.parseStatementLike (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:12406:17)
+    at FlowParserMixin.parseStatementLike (/home/kavia/workspace/code-generation/tamilstream-hub-25458-97ab4770/tamilstream_hub/node_modules/@babel/parser/lib/index.js:5140:24)
+
+ERROR in [eslint] 
+src/App.js
+  Line 97:89:  Parsing error: Unterminated string constant. (97:89)
+
+webpack compiled with 2 errors
